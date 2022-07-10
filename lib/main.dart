@@ -47,157 +47,143 @@ class MyStatelessWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Table(
-          border: const TableBorder(
-              top: BorderSide(color: Colors.blue, width: 50),
-              horizontalInside: BorderSide(color: Colors.black, width: 1),
-              verticalInside: BorderSide(color: Colors.black, width: 1),
-              bottom: BorderSide(color: Colors.blue, width: 5)),
-          columnWidths: const <int, TableColumnWidth>{
-            0: FlexColumnWidth(),
-            1: FlexColumnWidth(),
-            2: FlexColumnWidth(),
-            3: FlexColumnWidth(),
-            4: FlexColumnWidth(),
-            5: FlexColumnWidth(),
-            6: FlexColumnWidth(),
-            7: FlexColumnWidth(),
-            8: FlexColumnWidth(),
-          },
-          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-          children: <TableRow>[
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-            TableRow(
-              children: <Widget>[
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-                NumBox(displayNum: '1'),
-              ],
-            ),
-          ],
+        Align(
+          alignment: Alignment.topCenter,
+          child: Table(
+            columnWidths: const <int, TableColumnWidth>{
+              0: FlexColumnWidth(),
+              1: FlexColumnWidth(),
+              2: FlexColumnWidth(),
+              3: FlexColumnWidth(),
+              4: FlexColumnWidth(),
+              5: FlexColumnWidth(),
+              6: FlexColumnWidth(),
+              7: FlexColumnWidth(),
+              8: FlexColumnWidth(),
+            },
+            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+            children: <TableRow>[
+              TableRow(
+                children: <Widget>[
+                  NumBox(displayNum: '3'),
+                  NumBox(displayNum: '3'),
+                  NumBox(displayNum: '3'),
+                  NumBox(displayNum: '3'),
+                  NumBox(displayNum: '3'),
+                  NumBox(displayNum: '3'),
+                  NumBox(displayNum: '3'),
+                  NumBox(displayNum: '3'),
+                  NumBox(displayNum: '3'),
+                ],
+              ),
+              TableRow(
+                children: <Widget>[
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                ],
+              ),
+              TableRow(
+                children: <Widget>[
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                ],
+              ),
+              TableRow(
+                children: <Widget>[
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                ],
+              ),
+              TableRow(
+                children: <Widget>[
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                ],
+              ),
+              TableRow(
+                children: <Widget>[
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                ],
+              ),
+              TableRow(
+                children: <Widget>[
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                ],
+              ),
+              TableRow(
+                children: <Widget>[
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                ],
+              ),
+              TableRow(
+                children: <Widget>[
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                  NumBox(displayNum: '1'),
+                ],
+              ),
+            ],
+          ),
         ),
         Table(
           border: const TableBorder(
@@ -336,15 +322,18 @@ class _NumBoxState extends State<NumBox> {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(
-        padding: const EdgeInsets.all(0),
-        primary: Colors.black,
-        textStyle: const TextStyle(fontSize: 25),
-      ),
-      onPressed: _toggleFavorite,
-      child: Text(widget.displayNum),
-    );
+    double height = MediaQuery.of(context).size.height;
+    return SizedBox(
+        height: height * 0.06,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            padding: const EdgeInsets.all(0),
+            primary: Colors.black,
+            textStyle: TextStyle(fontSize: height * 0.03),
+          ),
+          onPressed: _toggleFavorite,
+          child: Text(widget.displayNum),
+        ));
   }
 }
 
