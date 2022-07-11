@@ -50,9 +50,13 @@ class MyStatelessWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Align(
-          alignment: Alignment.topCenter,
+        Padding(
+          padding: EdgeInsets.only(top: SizeConfig.screenHeight / 17),
           child: Table(
+            border: TableBorder.all(
+              color: Colors.black,
+              width: 1,
+            ),
             columnWidths: const <int, TableColumnWidth>{
               0: FlexColumnWidth(),
               1: FlexColumnWidth(),
@@ -188,6 +192,7 @@ class MyStatelessWidget extends StatelessWidget {
         ),
         Table(
           border: const TableBorder(
+              top: BorderSide(color: Colors.blue, width: 5),
               horizontalInside: BorderSide(color: Colors.black, width: 1),
               verticalInside: BorderSide(color: Colors.black, width: 1),
               bottom: BorderSide(color: Colors.blue, width: 5)),
@@ -262,36 +267,24 @@ class _NumBarButtonState extends State<NumBarButton> {
     isFocused = (Provider.of<SelectedNum>(context).getNum().toString() ==
         widget.displayNum);
     if (isFocused) {
-      return Stack(
-        children: <Widget>[
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: <Color>[
-                  Color(0xFF0D47A1),
-                  Color(0xFF1976D2),
-                  Color(0xFF42A5F5),
-                ],
-              ),
-            ),
-          ),
-          TextButton(
-            style: TextButton.styleFrom(
-              padding: const EdgeInsets.all(16.0),
-              primary: Colors.white,
-              textStyle: const TextStyle(fontSize: 20),
-            ),
-            onPressed: null,
-            child: Text(widget.displayNum),
-          ),
-        ],
+      return TextButton(
+        style: TextButton.styleFrom(
+          padding: const EdgeInsets.all(0),
+          primary: Colors
+              .blueGrey, // as long as onPressed is null it will actually just be grey
+          textStyle:
+              TextStyle(fontSize: MediaQuery.of(context).size.height * 0.05),
+        ),
+        onPressed: null,
+        child: Text(widget.displayNum),
       );
     } else {
       return TextButton(
         style: TextButton.styleFrom(
           padding: const EdgeInsets.all(0),
           primary: Colors.black,
-          textStyle: const TextStyle(fontSize: 16),
+          textStyle:
+              TextStyle(fontSize: MediaQuery.of(context).size.height * 0.04),
         ),
         onPressed: _selectNum,
         child: Text(widget.displayNum),
