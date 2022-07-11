@@ -30,6 +30,9 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider.value(
             value: SelectedNum(),
+          ),
+          ChangeNotifierProvider.value(
+            value: SelectedMode(),
           )
         ],
         child: MaterialApp(
@@ -225,9 +228,76 @@ class MyStatelessWidget extends StatelessWidget {
               ],
             ),
           ],
-        )
+        ),
+        Row(children: <Widget>[
+          Expanded(
+              child:
+                  ModeButton(buttonMode: Mode.edit, displayIcon: Icons.edit)),
+          Expanded(
+            child: ModeButton(buttonMode: Mode.note, displayIcon: Icons.note),
+          ),
+          Expanded(
+            child:
+                ModeButton(buttonMode: Mode.delete, displayIcon: Icons.delete),
+          )
+        ])
       ],
     );
+  }
+}
+
+enum Mode { edit, note, delete }
+
+class SelectedMode extends ChangeNotifier {
+  Mode selectedMode = Mode.edit;
+  void setMode(Mode mode) {
+    selectedMode = mode;
+    notifyListeners();
+  }
+
+  Mode getMode() {
+    return selectedMode;
+  }
+}
+
+class ModeButton extends StatefulWidget {
+  Mode buttonMode;
+  IconData displayIcon;
+  ModeButton({
+    Key? key,
+    required this.buttonMode,
+    required this.displayIcon,
+  }) : super(key: key);
+
+  @override
+  _ModeButtonState createState() => _ModeButtonState();
+}
+
+class _ModeButtonState extends State<ModeButton> {
+  bool isFocused = false;
+
+  void _selectMode() {
+    setState(() {
+      Provider.of<SelectedMode>(context, listen: false)
+          .setMode(widget.buttonMode);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    isFocused =
+        (Provider.of<SelectedMode>(context).getMode() == widget.buttonMode);
+    if (isFocused) {
+      return IconButton(
+        icon: Icon(widget.displayIcon),
+        onPressed: null,
+      );
+    } else {
+      return IconButton(
+        icon: Icon(widget.displayIcon),
+        onPressed: _selectMode,
+      );
+    }
   }
 }
 
@@ -302,16 +372,17 @@ class NumBox extends StatefulWidget {
 }
 
 class _NumBoxState extends State<NumBox> {
-  bool _isFavorited = true;
-  int _favoriteCount = 1;
-
   void _toggleFavorite() {
     setState(() {
-      if (widget.displayNum != ' ') {
-        _favoriteCount = int.parse(widget.displayNum) + 1;
+      Mode mode = Provider.of<SelectedMode>(context, listen: false).getMode();
+      if (mode == Mode.edit) {
         widget.displayNum = Provider.of<SelectedNum>(context, listen: false)
             .getNum()
             .toString();
+      } else if (mode == Mode.delete) {
+        widget.displayNum = ' ';
+      } else if (mode == Mode.note) {
+        // TODO figure this out later
       }
     });
   }
