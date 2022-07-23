@@ -60,17 +60,7 @@ class MyStatelessWidget extends StatelessWidget {
               color: Colors.black,
               width: 1,
             ),
-            columnWidths: const <int, TableColumnWidth>{
-              0: FlexColumnWidth(),
-              1: FlexColumnWidth(),
-              2: FlexColumnWidth(),
-              3: FlexColumnWidth(),
-              4: FlexColumnWidth(),
-              5: FlexColumnWidth(),
-              6: FlexColumnWidth(),
-              7: FlexColumnWidth(),
-              8: FlexColumnWidth(),
-            },
+            defaultColumnWidth: FixedColumnWidth(SizeConfig.screenWidth / 9),
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: <TableRow>[
               TableRow(
