@@ -372,7 +372,7 @@ class _NumBoxState extends State<NumBox> {
       } else if (mode == Mode.delete) {
         widget.displayNum = ' ';
       } else if (mode == Mode.note) {
-        // TODO figure this out later
+        // TODO convert button into 3x3 table to note possible numbers
       }
     });
   }
@@ -380,13 +380,27 @@ class _NumBoxState extends State<NumBox> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    return SizedBox(
+    final selectedNum = Provider.of<SelectedNum>(context, listen: true).curNum;
+    Color backColor, fontColor;
+    FontWeight fontWeight;
+    if (widget.displayNum == selectedNum.toString()) {
+      backColor = Colors.black;
+      fontColor = Colors.white;
+      fontWeight = FontWeight.bold;
+    } else {
+      backColor = Colors.white;
+      fontColor = Colors.black;
+      fontWeight = FontWeight.normal;
+    }
+    return Container(
         height: height * 0.06,
+        color: backColor,
         child: TextButton(
           style: TextButton.styleFrom(
             padding: const EdgeInsets.all(0),
-            primary: Colors.black,
-            textStyle: TextStyle(fontSize: height * 0.03),
+            primary: fontColor,
+            textStyle:
+                TextStyle(fontSize: height * 0.03, fontWeight: fontWeight),
           ),
           onPressed: _toggleFavorite,
           child: Text(widget.displayNum),
