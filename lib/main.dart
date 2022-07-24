@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'sudoku_puzzle.dart';
 
 void main() {
   runApp(
@@ -50,12 +51,13 @@ class MyStatelessWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    Sudoku sudoku = Sudoku(Difficulty.easy);
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsets.only(top: SizeConfig.screenHeight / 17),
-          child: const SudokuTable(),
+          child: SudokuTable(sudoku: sudoku),
         ),
         Table(
           border: const TableBorder(
@@ -111,7 +113,8 @@ class MyStatelessWidget extends StatelessWidget {
 }
 
 class SudokuTable extends StatelessWidget {
-  const SudokuTable({Key? key}) : super(key: key);
+  final Sudoku sudoku;
+  const SudokuTable({Key? key, required this.sudoku}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -125,119 +128,119 @@ class SudokuTable extends StatelessWidget {
       children: <TableRow>[
         TableRow(
           children: <Widget>[
-            NumBox(displayNum: '3'),
-            NumBox(displayNum: '3'),
-            NumBox(displayNum: '3'),
-            NumBox(displayNum: '3'),
-            NumBox(displayNum: '3'),
-            NumBox(displayNum: '3'),
-            NumBox(displayNum: '3'),
-            NumBox(displayNum: '3'),
-            NumBox(displayNum: '3'),
+            NumBox(displayNum: sudoku.clues[0][0].toString()),
+            NumBox(displayNum: sudoku.clues[0][1].toString()),
+            NumBox(displayNum: sudoku.clues[0][2].toString()),
+            NumBox(displayNum: sudoku.clues[0][3].toString()),
+            NumBox(displayNum: sudoku.clues[0][4].toString()),
+            NumBox(displayNum: sudoku.clues[0][5].toString()),
+            NumBox(displayNum: sudoku.clues[0][6].toString()),
+            NumBox(displayNum: sudoku.clues[0][7].toString()),
+            NumBox(displayNum: sudoku.clues[0][8].toString()),
           ],
         ),
         TableRow(
           children: <Widget>[
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
+            NumBox(displayNum: sudoku.clues[1][0].toString()),
+            NumBox(displayNum: sudoku.clues[1][1].toString()),
+            NumBox(displayNum: sudoku.clues[1][2].toString()),
+            NumBox(displayNum: sudoku.clues[1][3].toString()),
+            NumBox(displayNum: sudoku.clues[1][4].toString()),
+            NumBox(displayNum: sudoku.clues[1][5].toString()),
+            NumBox(displayNum: sudoku.clues[1][6].toString()),
+            NumBox(displayNum: sudoku.clues[1][7].toString()),
+            NumBox(displayNum: sudoku.clues[1][8].toString()),
           ],
         ),
         TableRow(
           children: <Widget>[
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
+            NumBox(displayNum: sudoku.clues[2][0].toString()),
+            NumBox(displayNum: sudoku.clues[2][1].toString()),
+            NumBox(displayNum: sudoku.clues[2][2].toString()),
+            NumBox(displayNum: sudoku.clues[2][3].toString()),
+            NumBox(displayNum: sudoku.clues[2][4].toString()),
+            NumBox(displayNum: sudoku.clues[2][5].toString()),
+            NumBox(displayNum: sudoku.clues[2][6].toString()),
+            NumBox(displayNum: sudoku.clues[2][7].toString()),
+            NumBox(displayNum: sudoku.clues[2][8].toString()),
           ],
         ),
         TableRow(
           children: <Widget>[
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
+            NumBox(displayNum: sudoku.clues[3][0].toString()),
+            NumBox(displayNum: sudoku.clues[3][1].toString()),
+            NumBox(displayNum: sudoku.clues[3][2].toString()),
+            NumBox(displayNum: sudoku.clues[3][3].toString()),
+            NumBox(displayNum: sudoku.clues[3][4].toString()),
+            NumBox(displayNum: sudoku.clues[3][5].toString()),
+            NumBox(displayNum: sudoku.clues[3][6].toString()),
+            NumBox(displayNum: sudoku.clues[3][7].toString()),
+            NumBox(displayNum: sudoku.clues[3][8].toString()),
           ],
         ),
         TableRow(
           children: <Widget>[
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
+            NumBox(displayNum: sudoku.clues[4][0].toString()),
+            NumBox(displayNum: sudoku.clues[4][1].toString()),
+            NumBox(displayNum: sudoku.clues[4][2].toString()),
+            NumBox(displayNum: sudoku.clues[4][3].toString()),
+            NumBox(displayNum: sudoku.clues[4][4].toString()),
+            NumBox(displayNum: sudoku.clues[4][5].toString()),
+            NumBox(displayNum: sudoku.clues[4][6].toString()),
+            NumBox(displayNum: sudoku.clues[4][7].toString()),
+            NumBox(displayNum: sudoku.clues[4][8].toString()),
           ],
         ),
         TableRow(
           children: <Widget>[
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
+            NumBox(displayNum: sudoku.clues[5][0].toString()),
+            NumBox(displayNum: sudoku.clues[5][1].toString()),
+            NumBox(displayNum: sudoku.clues[5][2].toString()),
+            NumBox(displayNum: sudoku.clues[5][3].toString()),
+            NumBox(displayNum: sudoku.clues[5][4].toString()),
+            NumBox(displayNum: sudoku.clues[5][5].toString()),
+            NumBox(displayNum: sudoku.clues[5][6].toString()),
+            NumBox(displayNum: sudoku.clues[5][7].toString()),
+            NumBox(displayNum: sudoku.clues[5][8].toString()),
           ],
         ),
         TableRow(
           children: <Widget>[
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
+            NumBox(displayNum: sudoku.clues[6][0].toString()),
+            NumBox(displayNum: sudoku.clues[6][1].toString()),
+            NumBox(displayNum: sudoku.clues[6][2].toString()),
+            NumBox(displayNum: sudoku.clues[6][3].toString()),
+            NumBox(displayNum: sudoku.clues[6][4].toString()),
+            NumBox(displayNum: sudoku.clues[6][5].toString()),
+            NumBox(displayNum: sudoku.clues[6][6].toString()),
+            NumBox(displayNum: sudoku.clues[6][7].toString()),
+            NumBox(displayNum: sudoku.clues[6][8].toString()),
           ],
         ),
         TableRow(
           children: <Widget>[
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
+            NumBox(displayNum: sudoku.clues[7][0].toString()),
+            NumBox(displayNum: sudoku.clues[7][1].toString()),
+            NumBox(displayNum: sudoku.clues[7][2].toString()),
+            NumBox(displayNum: sudoku.clues[7][3].toString()),
+            NumBox(displayNum: sudoku.clues[7][4].toString()),
+            NumBox(displayNum: sudoku.clues[7][5].toString()),
+            NumBox(displayNum: sudoku.clues[7][6].toString()),
+            NumBox(displayNum: sudoku.clues[7][7].toString()),
+            NumBox(displayNum: sudoku.clues[7][8].toString()),
           ],
         ),
         TableRow(
           children: <Widget>[
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
-            NumBox(displayNum: '1'),
+            NumBox(displayNum: sudoku.clues[8][0].toString()),
+            NumBox(displayNum: sudoku.clues[8][1].toString()),
+            NumBox(displayNum: sudoku.clues[8][2].toString()),
+            NumBox(displayNum: sudoku.clues[8][3].toString()),
+            NumBox(displayNum: sudoku.clues[8][4].toString()),
+            NumBox(displayNum: sudoku.clues[8][5].toString()),
+            NumBox(displayNum: sudoku.clues[8][6].toString()),
+            NumBox(displayNum: sudoku.clues[8][7].toString()),
+            NumBox(displayNum: sudoku.clues[8][8].toString()),
           ],
         ),
       ],
@@ -388,6 +391,9 @@ class _NumBoxState extends State<NumBox> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.displayNum == '0') {
+      widget.displayNum = ' ';
+    }
     double height = MediaQuery.of(context).size.height;
     final selectedNum = Provider.of<SelectedNum>(context, listen: true).curNum;
     Color backColor, fontColor;
