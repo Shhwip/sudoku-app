@@ -27,7 +27,7 @@ class Sudoku {
           }
         case Difficulty.hard:
           {
-            emptySquares = 55;
+            emptySquares = 54;
             break;
           }
       }
