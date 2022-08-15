@@ -1,0 +1,37 @@
+﻿sudoku app code review
+
+
+1. The build time for iOS was 7 seconds which is good. 
+2. The build time for Android was 7:30 minutes with M1 Mac which is a very long time.
+3. The app is working fine for iOS in terms of performance
+4. The app is working fine for Android as well in terms of performance. You said you are getting 2-4 FPS, I didn’t encounter that. Could you please specify which platform gave you performance issues (iOS or Android) and also which device (or simulator / emulator) did you use to run the app?
+5. You need to implement a proper folder structure for the project. I understand that there are only around 600 lines of code but it becomes very difficult to read in an unorganized structure. You should at least separate the UI code and business logic. I am providing a basic folder structure for a simple flutter app: (You may or may not want to have all these folders in your app depending on what files you might have)
+   * config
+   * constants
+   * controllers
+   * models
+   * screens
+   * utils
+   * widgets
+6. Your main.dart should only have a few LOC with basic initialization code and it should point to the main screen (home screen) of the app, and that screen should be stored in a different file.
+7. You should have the latest version of flutter and dart. I would suggest using Android Studio as the IDE instead of VS code as I believe it integrated better with flutter. You should focus on the warnings and hints given in “Dart Analysis” tab at the bottom, they should help you improve the performance of your app. Your app currently has 2 warnings and 9 hints.
+8. For state management, Why did you use provider? Don’t get me wrong, there’s nothing wrong with provider, it’s just that there might be easier solutions that also provide some extra functionality. Let me know if you want to discuss further on this topic. 
+9. You should name your screens, variables, widgets that make sense. MyStatelessWidget does not make any sense to me and it does not tell me what that widget is about.
+10. I am able to remove numbers which are there from the beginning as well, I don’t think that’s how it is supposed to work.
+11. There’s a lot of repeated code for the tables, even though it’s fine as we only have a limited 9x9 structure here, you could probably make it smaller using loops.
+12. No indication after winning
+13. You have a lot of white space at the bottom of the screen which you can use to extend the number pad.
+14. The app is refreshed twice when you re-run it once.
+15. There’s no option to reset the game or to start again.
+16. Other than that, it’s really difficult to read your code, which should not be the case. You need to organize the code properly and make it readable so that any other flutter developer should be able to understand it without any special effort. I still could not figure out what the note-button is supposed to be doing here, neither through the code nor through playing the game.
+17. If you don’t mind, I would like to suggest you to re-implement the whole thing in smaller pieces (I will help you with that), preferably with GetX state management. You can also use the premade GetX snackbars to display when the user has won the game and you can also have an option somewhere at the top to restart the game.
+18. You have initialized the screenWidth, screenHeight to 0, which does not make sense (I know you have set the proper height and width to those variables later on but that means you are assigning a constant value twice which is not really needed and negatively impacts performance). If you use GetX, you can directly use the Get.height and Get.width properties.
+
+
+UX Review not done but as a UI UX Designer, I can point out a lot of places in this app which can be changed to improve the UX significantly.
+
+
+Conclusion: I did not notice any performance issues to be honest but there are a lot of smaller issues as mentioned above.
+
+
+Just for my reference, if I may ask, How long have you been working with Flutter? Are you building this Sudoku app just to learn flutter or something else?
